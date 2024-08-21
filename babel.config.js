@@ -5,6 +5,7 @@ module.exports = (api) => {
       ["babel-preset-expo", { jsxImportSource: "nativewind" }],
       "nativewind/babel",
     ],
+    plugins: [["inline-import", { extensions: [".sql"] }]],
     env: {
       production: {
         plugins: ["react-native-paper/babel"],
