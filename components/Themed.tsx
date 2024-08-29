@@ -4,7 +4,24 @@ import {
   Text as RNText,
   TextInput as RNTextInput,
 } from "react-native-paper";
+import { SafeAreaView as RNSafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "./Theme";
+
+const RemappedSafeAreaView = cssInterop(RNSafeAreaView, {
+  className: { target: "style" },
+});
+
+export function SafeAreaView({
+  className,
+  ...props
+}: React.ComponentProps<typeof RNSafeAreaView>) {
+  return (
+    <RemappedSafeAreaView
+      className={`flex-1 bg-background ${className || ""}`}
+      {...props}
+    />
+  );
+}
 
 export const Button = cssInterop(RNButton, {
   className: { target: "style" },

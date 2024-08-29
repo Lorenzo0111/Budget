@@ -5,4 +5,7 @@ const config = getDefaultConfig(__dirname);
 
 config.resolver.sourceExts.push("sql");
 
-module.exports = withNativeWind(config, { input: "./assets/global.css" });
+module.exports = withNativeWind(config, {
+  input: "./assets/global.css",
+  configPath: "./tailwind.config.ts",
+});

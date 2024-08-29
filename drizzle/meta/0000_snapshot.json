@@ -1,11 +1,11 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "2ee76e9c-0735-4d6c-ac63-4676f9b4b9d2",
+  "id": "11608e53-0fb9-4700-b9d6-86bb14f52c94",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
-    "expenses": {
-      "name": "expenses",
+    "transactions": {
+      "name": "transactions",
       "columns": {
         "id": {
           "name": "id",
@@ -23,7 +23,7 @@
         },
         "amount": {
           "name": "amount",
-          "type": "integer",
+          "type": "real",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false

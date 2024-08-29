@@ -1,18 +1,19 @@
 import { ThemeProvider, useTheme } from "@/components/Theme";
+import { Text } from "@/components/Themed";
+import migrations from "@/drizzle/migrations";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { drizzle } from "drizzle-orm/expo-sqlite/driver";
+import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
+import { openDatabaseSync } from "expo-sqlite";
 import { useEffect } from "react";
+import { View } from "react-native";
 import { MD3DarkTheme, MD3LightTheme, PaperProvider } from "react-native-paper";
+
 import "react-native-reanimated";
 import "../assets/global.css";
-import { Text } from "@/components/Themed";
-import { drizzle } from "drizzle-orm/expo-sqlite/driver";
-import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
-import { openDatabaseSync } from "expo-sqlite";
-import { View } from "react-native";
-import migrations from "@/drizzle/migrations";
 
 export { ErrorBoundary } from "expo-router";
 
@@ -20,7 +21,7 @@ export const unstable_settings = {
   initialRouteName: "(tabs)",
 };
 
-export const expo = openDatabaseSync("db.db");
+export const expo = openDatabaseSync("db.db", { enableChangeListener: true });
 export const db = drizzle(expo);
 
 SplashScreen.preventAutoHideAsync();
