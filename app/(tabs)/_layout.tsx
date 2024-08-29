@@ -29,6 +29,17 @@ export default function TabLayout() {
           ),
         }}
       />
+
+      <Tabs.Screen
+        name="create"
+        options={{
+          title: "Dashboard",
+          tabBarLabelStyle: { display: "none" },
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="plus" color={color} />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

@@ -67,6 +67,7 @@ export function TextInput({
         style,
       ]}
       className={className}
+      mode="outlined"
       {...props}
     />
   );
